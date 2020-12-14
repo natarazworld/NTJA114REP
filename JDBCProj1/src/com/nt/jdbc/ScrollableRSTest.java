@@ -2,9 +2,9 @@ package com.nt.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class ScrollableRSTest {
   private static  final String GET_STUDENTS="SELECT SNO,SNAME,SADD,AVG FROM STUDENT";
@@ -13,9 +13,12 @@ public class ScrollableRSTest {
 		try(Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "manager")) {
 			if(con!=null)
 				//try(Statement st=con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY)){
-				try(Statement st=con.createStatement(1005,1007)){
-					if(st!=null)
-						try(ResultSet rs=st.executeQuery(GET_STUDENTS)){
+				//try(Statement st=con.createStatement(1005,1007)){
+				try(PreparedStatement ps=con.prepareStatement(GET_STUDENTS, 
+						                                                                                              ResultSet.TYPE_SCROLL_INSENSITIVE,
+						                                                                                              ResultSet.CONCUR_READ_ONLY)){ 
+					if(ps!=null)
+						try(ResultSet rs=ps.executeQuery(GET_STUDENTS)){
 							  if(rs!=null) {
 						          System.out.println("Records (top- bottom)");
 						          while(rs.next()) {
