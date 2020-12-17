@@ -10,5 +10,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="G:/Softwares/UnConventation Dbs/excel/lib/Excel_JDBC30.jar"/>
+	<classpathentry kind="lib" path="G:/Softwares/UnConventation Dbs/text/lib/Text_JDBC30.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
