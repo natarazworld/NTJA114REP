@@ -3,7 +3,9 @@ package com.nt.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,9 +22,40 @@ public class VoterServlet extends  HttpServlet {
 		//set response content type
 		res.setContentType("text/html");
 		//read form data (ruquest param values from request object)
-		String name=req.getParameter("pname");  //the form comp names acts as request param names
-		float age=Float.parseFloat(req.getParameter("page"));
-		String addrs=req.getParameter("paddrs");
+		String name=req.getParameter("pname").trim();  //the form comp names acts as request param names
+		String tage=req.getParameter("page").trim();
+		String addrs=req.getParameter("paddrs").trim();
+		//form validation logic (server side)
+		System.out.println("form validation logic (server side)");
+		List<String> errorsList=new ArrayList();
+		 //-------  on person name ----------------
+		if(name==null || name.length()==0 || name.equals(""))  //required rule
+			errorsList.add("Person name is required");
+		else if(name.length()<10)
+			errorsList.add("Person name must have minimum of 10 chars");  //min lenght rule
+		//-------  on person age ----------------
+		int age=0;
+		  try {
+			  age=Integer.parseInt(tage);
+			   if(age<1 || age>125)
+				   errorsList.add("Person age must there 1 through 125");  //range rule
+		  }
+		  catch(NumberFormatException nfe) {
+			  errorsList.add("Person age must be numeric value");  // numeric value rule
+		  }
+		//----------------- on person addrs -------
+		  if(addrs==null || addrs.equals("") || addrs.length()==0)
+			    errorsList.add("Person address is required");
+		
+		//Display form validation errors
+		  if(errorsList.size()!=0) {
+			  pw.println("<ul style='color:red'>");
+			    for(String errMsg:errorsList)
+			    	pw.println("<li>"+errMsg+"</li>");
+			    pw.println("</ul>");
+			    
+			    return;  //returns the controller to caller .. so that b.logic will not executed..
+		  }
 		
 		//write b.logic or request processsng logic
 		if(age<18) 
