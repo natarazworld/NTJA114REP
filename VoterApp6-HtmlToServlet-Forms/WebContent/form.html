@@ -1,9 +1,62 @@
 
+<script language="JavaScript">
+    function validate(frm){
+          //read form data
+          let  name=frm.pname.value;
+          let age=frm.page.value;
+          let addrs=frm.paddrs.value;
+          let flag=true;
+          
+          //----Client side form validations ---------
+          //----  required minlength  on name
+          if(name==""){
+            flag=false;
+            alert("person name is required");
+            frm.pname.focus();
+          }
+          else if(name.length<10){
+            flag=false;
+            alert("person name must have minimum of 10 chars");
+            frm.pname.focus();
+          }
+          
+          // ---  required , range , number rules on age
+          if(age==""){
+            flag=false;
+            alert("person age is required");
+            frm.page.focus();
+          }
+          else if(isNaN(age)){
+            flag=false;
+            alert("person age must be numeric value");
+            frm.page.focus();
+          }
+          else if(age<0 || age>125){
+             flag=false;
+             alert("person age must be there 1 through 125");
+             frm.page.focus();
+          }
+          
+          //required rule on addrs
+          if(addrs==""){
+             flag=false;
+             alert("person address is required");
+             frm.paddrs.focus();  //keeps control in paddrs box
+          }
+          
+          return flag;
+    }
+
+</script>
+
+<noscript>
+      <h2 style="color:green;text-align:center"> Enable Java script </h2>
+</noscript>
 
 <h1 style="color:red;text-align:center">Html to Servlet Communication using forms</h1>
 
 <body bgcolor="cyan">
-   <form action="voterurl"  method="POST">
+   <form action="voterurl"  method="POST"  onsubmit="return validate(this)">
       Person name      :::  <input type="text"  name="pname"> <br>
       Person Age         :::  <input type="text"  name="page"> <br>
       Person Address :::  <input type="text"  name="paddrs"> <br>

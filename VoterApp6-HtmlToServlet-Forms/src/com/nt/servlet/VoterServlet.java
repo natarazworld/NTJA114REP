@@ -25,8 +25,9 @@ public class VoterServlet extends  HttpServlet {
 		String name=req.getParameter("pname").trim();  //the form comp names acts as request param names
 		String tage=req.getParameter("page").trim();
 		String addrs=req.getParameter("paddrs").trim();
+		int age=Integer.parseInt(tage);
 		//form validation logic (server side)
-		System.out.println("form validation logic (server side)");
+		/*System.out.println("form validation logic (server side)");
 		List<String> errorsList=new ArrayList();
 		 //-------  on person name ----------------
 		if(name==null || name.length()==0 || name.equals(""))  //required rule
@@ -55,7 +56,7 @@ public class VoterServlet extends  HttpServlet {
 			    pw.println("</ul>");
 			    
 			    return;  //returns the controller to caller .. so that b.logic will not executed..
-		  }
+		  }  */
 		
 		//write b.logic or request processsng logic
 		if(age<18) 
@@ -88,6 +89,6 @@ public class VoterServlet extends  HttpServlet {
 			   //close stream
 				  pw.close();
 
-	}
+	}//doGet(-,-)
 
 	}//class
