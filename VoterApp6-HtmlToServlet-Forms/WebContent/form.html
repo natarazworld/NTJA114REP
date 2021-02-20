@@ -10,11 +10,11 @@
 <h1 style="color:red;text-align:center">Html to Servlet Communication using forms</h1>
 
 <body bgcolor="cyan">
-   <form action="voterurl"  method="POST"  onsubmit="return validate(this)">
+   <form action="voterurl"  method="GET"  onsubmit="return validate(this)">
       Person name      :::  <input type="text"  name="pname"><span id="pnameErr" style="color:red"> </span> <br>
       Person Age         :::  <input type="text"  name="page"><span id="pageErr" style="color:red"> </span> <br>
       Person Address :::  <input type="text"  name="paddrs"><span id="paddrsErr" style="color:red"> </span> <br>
-      <input type="submit"  value="register">
+      <input type="submit"  value="register" name="s1">
       <input type="hidden" name="vflag"  value="no"/>
   </form>      
     <br>
