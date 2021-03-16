@@ -1,0 +1,20 @@
+<web-app>
+  <servlet>
+     <servlet-name>test</servlet-name>
+	 <servlet-class>com.nt.servlet.TestServlet</servlet-class>
+	 <init-param>
+	    <param-name>driver</param-name>
+	    <param-value>oracle.jdbc.driver.OracleDriver</param-value>
+	 </init-param>
+	 <init-param>
+	    <param-name>dbuser</param-name>
+	    <param-value>system</param-value>
+	 </init-param>
+ </servlet>
+
+   <servlet-mapping>
+         <servlet-name>test</servlet-name>
+		 <url-pattern>/testurl</url-pattern>
+  </servlet-mapping> 
+ 
+</web-app>
