@@ -8,9 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,14 +24,14 @@ public class EmployeeSearchServlet extends HttpServlet {
 		res.setContentType("text/html");
 		//read form data
 		 int no=Integer.parseInt(req.getParameter("eno"));
-		 //get Access to SErvletConfig object
-		 ServletConfig cg=getServletConfig();
-		 pw.println("<br> p1  inti param value ::"+cg.getInitParameter("p1"));
-		 //read init param values
-		 String driver=cg.getInitParameter("driver");
-		 String url=cg.getInitParameter("url");
-		 String uname=cg.getInitParameter("dbuser");
-		 String pass=cg.getInitParameter("dbpwd");
+		 //get Access to SErvletContext obj
+		 ServletContext sc=getServletContext();
+		 pw.println("p1 context param value ::"+sc.getInitParameter("p1"));
+		 //read context param values
+		 String driver=sc.getInitParameter("driver");
+		 String url=sc.getInitParameter("url");
+		 String uname=sc.getInitParameter("dbuser");
+		 String pass=sc.getInitParameter("dbpwd");
 		 try {
 			 Class.forName(driver);
 		 }
