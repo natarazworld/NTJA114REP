@@ -20,12 +20,13 @@ public class TestServlet extends HttpServlet {
 		res.setContentType("text/html");
 		//access ServletContext obj
 		ServletContext sc=getServletContext();
-		pw.println("db user context parameter value ::"+sc.getInitParameter("dbuser"));
-		pw.println("<br>p1 context parameter value ::"+sc.getInitParameter("p1"));
-		pw.println("<br> ServletContext obj class name::"+sc.getClass());
-		//access ServletConfig  obj
-				ServletConfig cg=getServletConfig();
-				pw.println("<br> p1 init param value::"+cg.getInitParameter("p1"));
+		pw.println("<br> context path of web application::"+sc.getContextPath());
+		pw.println("<br> MIME type of input.html::"+sc.getMimeType("input.html"));
+		pw.println("<br> Underlying server info::"+sc.getServerInfo());
+		pw.println("<br> Servlet api version supported by server ::"+sc.getMajorVersion()+"."+sc.getMinorVersion());
+		pw.println("<br> Path of input.html:: "+sc.getRealPath("input.html"));
+		pw.println("<br> Path of web applicatio  location:: "+sc.getRealPath("/"));
+
 		
 		//close stream 
 		pw.close();
