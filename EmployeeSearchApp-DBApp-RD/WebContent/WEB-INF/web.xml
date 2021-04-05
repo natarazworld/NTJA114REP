@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>EmployeeSearchApp-DBApp</display-name>
+  <welcome-file-list>
+    <welcome-file>input.html</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>emp</servlet-name>
+    <servlet-class>com.nt.servlet.EmployeeSearchServlet</servlet-class>
+    <init-param>
+      <param-name>driver</param-name>
+      <param-value>oracle.jdbc.driver.OracleDriver</param-value>
+    </init-param>
+    <init-param>
+      <param-name>url</param-name>
+      <param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+    </init-param>
+    <init-param>
+       <param-name>dbuser</param-name>
+       <param-value>system</param-value>
+    </init-param>
+    <init-param>
+       <param-name>dbpwd</param-name>
+       <param-value>manager1</param-value>
+    </init-param>
+   </servlet>
+   <servlet-mapping>
+     <servlet-name>emp</servlet-name>
+     <url-pattern>/empurl</url-pattern>
+   </servlet-mapping>
+    <servlet>
+      <servlet-name>error</servlet-name>
+        <servlet-class>com.nt.error.ErrorServlet</servlet-class>
+    </servlet>
+      <servlet-mapping>
+          <servlet-name>error</servlet-name>
+          <url-pattern>/errorurl</url-pattern>
+      </servlet-mapping>        
+      
+      <servlet>
+         <servlet-name>err1</servlet-name>
+         <jsp-file>/error.jsp</jsp-file>
+      </servlet>
+      <servlet-mapping>
+         <servlet-name>err1</servlet-name>
+         <url-pattern>/ejurl</url-pattern>
+      </servlet-mapping>
+      
+         <servlet>
+         <servlet-name>err2</servlet-name>
+         <jsp-file>/myError.html</jsp-file>
+      </servlet>
+      <servlet-mapping>
+         <servlet-name>err2</servlet-name>
+         <url-pattern>/ehurl</url-pattern>
+      </servlet-mapping>
+    
+</web-app>
