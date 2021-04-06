@@ -25,6 +25,9 @@ public class EmployeeSearchServlet extends HttpServlet {
 		//set response content type
 		res.setContentType("text/html");
 		try {
+			//include header
+			RequestDispatcher rd1=req.getRequestDispatcher("/headurl");
+			rd1.include(req, res);
 		//read form data
 		 int no=Integer.parseInt(req.getParameter("eno"));
 		 //get Access to SErvletConfig object
@@ -58,6 +61,13 @@ public class EmployeeSearchServlet extends HttpServlet {
 				    }
 				    
 				    pw.println("<br><h3 style='text-align:center'> <a href='input.html'>home </a> </h3>");
+				    
+				    pw.close();
+				    //include footer 
+				    RequestDispatcher rd2=req.getRequestDispatcher("/footer.html");
+					rd2.include(req, res);
+
+				    
 			  }//try3
 			}//try2
 		 }//try1
@@ -65,7 +75,12 @@ public class EmployeeSearchServlet extends HttpServlet {
 		catch(Exception e) {
 			e.printStackTrace();
 			
-			System.out.println("MainServlet:: before rd.forward(-,-)");
+			//Error Servlet
+			
+			RequestDispatcher rd=req.getRequestDispatcher("errorurl");
+			rd.forward(req,res);
+			
+		/*	System.out.println("MainServlet:: before rd.forward(-,-)");
 			pw.println("<b>MainServlet:: before rd.forward(-,-)</b>");
 			/*RequestDispatcher rd=req.getRequestDispatcher("errorurl");
 			rd.forward(req,res);*/
@@ -76,18 +91,18 @@ public class EmployeeSearchServlet extends HttpServlet {
 			rd.forward(req,res);*/
 			
 			/*RequestDispatcher rd=req.getRequestDispatcher("myError.html");
-			rd.forward(req,res);*/
+			rd.forward(req,res);
 			
 			   ServletContext sc=getServletContext();
 			   RequestDispatcher rd=sc.getNamedDispatcher("error");
 			   rd.forward(req,res);
 			
-			/*  ServletContext sc=getServletContext();
+			  ServletContext sc=getServletContext();
 			   RequestDispatcher rd=sc.getNamedDispatcher("err1");
 			   rd.forward(req,res);
-			*/
+		
 			   RequestDispatcher rd1=sc.getNamedDispatcher("err2");
-			   rd1.forward(req,res); 
+			   rd1.forward(req,res); */ 
 			
 			
 			pw.println("<b>MainServlet:: after rd.forward(-,-)</b>");

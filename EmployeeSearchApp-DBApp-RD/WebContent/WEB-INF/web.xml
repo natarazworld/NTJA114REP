@@ -22,7 +22,7 @@
     </init-param>
     <init-param>
        <param-name>dbpwd</param-name>
-       <param-value>manager1</param-value>
+       <param-value>manager</param-value>
     </init-param>
    </servlet>
    <servlet-mapping>
