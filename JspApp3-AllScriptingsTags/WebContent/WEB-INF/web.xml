@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+   http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>JspApp3-AllScriptingsTags</display-name>
+  
+   <servlet>
+      <servlet-name>all</servlet-name>
+      <jsp-file>/WEB-INF/pages/all_scripting.jsp</jsp-file>
+   </servlet>
+   <servlet-mapping>
+       <servlet-name>all</servlet-name>
+       <url-pattern>/scripting</url-pattern>
+   </servlet-mapping>
+
+ </web-app>
