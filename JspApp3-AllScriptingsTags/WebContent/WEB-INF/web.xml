@@ -13,5 +13,24 @@
        <servlet-name>all</servlet-name>
        <url-pattern>/scripting</url-pattern>
    </servlet-mapping>
+   
+   <context-param>
+       <param-name>c1</param-name>
+       <param-value>val1</param-value>
+   </context-param>
+   
+    <servlet>
+      <servlet-name>t</servlet-name>
+      <jsp-file>/test.jsp</jsp-file>
+      <init-param>
+          <param-name>p1</param-name>
+          <param-value>val2</param-value>
+      </init-param>
+      
+   </servlet>
+   <servlet-mapping>
+       <servlet-name>t</servlet-name>
+       <url-pattern>/testurl</url-pattern>
+   </servlet-mapping>
 
  </web-app>
