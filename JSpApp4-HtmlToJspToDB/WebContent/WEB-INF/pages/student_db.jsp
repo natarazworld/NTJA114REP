@@ -1,5 +1,5 @@
 
-<%@page  import="java.sql.*,java.util.*"%>  <!-- Page Directive tag to perform java packages import -->
+<%@page   errorPage="error.jsp"  import="java.sql.*,java.util.*"%>  <!-- Page Directive tag to perform java packages import -->
 
 <%!
    Connection con;
@@ -9,7 +9,7 @@
 		   //get access to ServletConfig obj
 		   ServletConfig cg=getServletConfig();
 		   //read jsp init parameter values
-		   String driver=cg.getInitParameter("driverClass");
+		   String driver=cg.getInitParameter("driverClass1");
 		   String url=cg.getInitParameter("url");
 		   String dbuser=cg.getInitParameter("dbuser");
 		   String dbpwd=cg.getInitParameter("dbpwd");
