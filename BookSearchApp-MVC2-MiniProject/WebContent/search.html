@@ -1,0 +1,51 @@
+
+
+<h1 style="color:red;text-align:center">  BookSearch Application -MVC2 aritecture</h1>
+
+ <form name="frm" action="controller" target="f2" method="POST">
+       <table rows="3" cols="2"  align="center" bgcolor="pink">
+         <tr>
+            <th> Select Book Category </th>
+            <th><select name="category">
+                          <option value="">--Select a item----- </option>
+                          <option value="JAVA">JAVA </option>
+                          <option value=".net">NET</option>
+                          <option value="PHP">PHP</option>
+                          <option value="JS">JavaScript</option>            
+                   </select>
+              </th>
+         </tr>
+         <tr>
+             <td><input type="button"  value="ExcelOutput"  onclick="isExcel()"> </td>
+             <td><input type="button"  value="HtmlOutput" onclick="isHtml()"> </td>
+         </tr>
+     </table>
+      <input type="hidden" name="source"/>
+ </form>
+   <script language="JavaScript">
+      function  isExcel(){
+    	   alert("1")
+    	   frm.source.value="excel"; //keeping "excel" in the  hidden box
+    	   validateAndSubmit();
+      }
+      
+      function validateAndSubmit(){
+    	  if(frm.category.selectedIndex==0){
+    		   alert ("Please select  another item in the select box");
+    		   return;
+    	  }
+    	  else{
+    		  frm.submit(); //submitts the request
+    		  
+    	  }
+    	  }//validateAndSubmit()
+    	  
+      
+      function  isHtml(){
+    		  alert("2");
+   	   frm.source.value="html";  ////keeping "html" in the  hidden box
+   	    validateAndSubmit();
+     }
+  
+   
+   </script>
