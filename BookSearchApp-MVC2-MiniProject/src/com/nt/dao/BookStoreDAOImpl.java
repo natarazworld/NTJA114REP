@@ -18,7 +18,7 @@ public class BookStoreDAOImpl implements IBookStoreDAO {
 	private Connection  getPooledJdbcConnection() throws Exception{
 		 //get DataSource obj from Jndi registry
 		InitialContext ic=new InitialContext();
-		DataSource ds=(DataSource)ic.lookup("java:/comp/env/DsJndi");
+		DataSource ds=(DataSource)ic.lookup("java:/comp/env/DsJndi1");
 		//get Pooled jdbc con object
 		Connection con=ds.getConnection();
 		return con;
