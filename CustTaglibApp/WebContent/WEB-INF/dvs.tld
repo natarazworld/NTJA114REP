@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taglib version="2.0" xmlns="http://java.sun.com/xml/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+
+	<tlib-version>2.0</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	<short-name>dvs</short-name>
+
+	<uri>tag lib version id</uri>
+	<description>
+		This tag library contains several tag extensions
+		useful for
+		formatting content for HTML, Message, Calculate Prime.
+	</description>
+
+	<tag>
+		<name>message</name>
+		<tag-class>com.nt.tags.MessageTag</tag-class>
+		<body-content>EMPTY</body-content>
+	</tag>
+
+	<tag>
+		<name>prime</name>
+		<tag-class>com.nt.tags.PrimeTag</tag-class>
+		<body-content>EMPTY</body-content>
+		<attribute>
+			<name>uptoRange</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>display</name>
+		<tag-class>com.nt.tags.DisplayTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>family</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>size</name>
+			<required>optional</required>
+		</attribute>
+	</tag>
+
+
+</taglib>
